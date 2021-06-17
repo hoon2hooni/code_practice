@@ -34,9 +34,16 @@ type UnknownEmployee = Employee | Admin;
 
 function printEmployeeInformation(emp: UnknownEmployee) {
   console.log('Name: ' + emp.name);
+  
+  // if (typeof emp === 'object')
+  // 이기에 좋은 typeof아님 javascript타입만 체크 가능 
+  // 그래서 새로운 방법 찾아야함!
+  // if (emp.privileges) 도 허용안함
+
   if ('privileges' in emp) {
     console.log('Privileges: ' + emp.privileges);
   }
+  
   if ('startDate' in emp) {
     console.log('Start Date: ' + emp.startDate);
   }
