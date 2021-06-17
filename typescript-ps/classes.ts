@@ -1,15 +1,28 @@
 interface V {
-  drive(): void;
   honk(): string;
 }
-class Vehicle implements V{
-  drive(): void {
-    console.log('gogo');
+class Vehicle implements V {
+  constructor(public color: string) {
+    //this.color = color
   }
   honk() {
-    return "hello";
+    return 'hello';
   }
 }
 
-const vehicle = new Vehicle();
-vehicle.drive();
+class Car extends Vehicle {
+  private drive(): void {
+    console.log('VVs..');
+  }
+
+  startDrivingProcess(): void {
+    this.drive();
+    this.honk();
+  }
+}
+
+const car = new Car("red");
+car.startDrivingProcess();
+console.log(car.color);
+
+const smallVehicle = new Vehicle("black");
