@@ -19,12 +19,14 @@
   
   // }
 
+  
+  //T extends object 하게되면 T는 object 타입 어떤것이든 상관 없음
 
-  function merge<T, U>(objA: T, objB: U) {
-    return {...objA, ...objB};
+  function merge<T extends object, U extends string[]>(objA: T, objB: U) {
+    return Object.assign(objA, objB);
   }
   
-  console.log(merge({name:'MAx', love: ['idonno']},{age: 30}));
+  console.log(merge({name:'MAx', love: ['idonno']},["안녕하세요"]));
 
 }
 
