@@ -22,12 +22,34 @@
   
   //T extends object 하게되면 T는 object 타입 어떤것이든 상관 없음
 
-  function merge<T extends object, U extends string[]>(objA: T, objB: U) {
-    return Object.assign(objA, objB);
-  }
+  // function merge<T extends object, U extends string[]>(objA: T, objB: U) {
+  //   return Object.assign(objA, objB);
+  // }
   
-  console.log(merge({name:'MAx', love: ['idonno']},["안녕하세요"]));
+  // console.log(merge({name:'MAx', love: ['idonno']},["안녕하세요"]));
+
+  // interface Lengthy {
+  //   length: number
+  // }
+  
+    
+  
+  // function countAndDescribe<T extends Lengthy>(element: T): [T, string] {
+  //   let descriptionText: string = 'Got no value';
+  //   if (element.length === 1) {
+  //     descriptionText = `Got ${element.length} elements`
+  //   }
+  //   return [element, descriptionText]
+  // }
+  function extractKeyandValue<T extends object, U extends keyof T>(obj: T, key: U) {
+    let value = obj[key]
+    return value
+  }
+  console.log(extractKeyandValue({ name: "love" }, "name"))
 
 }
+  
+
+  
 
 
