@@ -63,7 +63,7 @@ interface GenericFn{
 
 let happy: GenericFn = (love) => console.log(love);
 
-function getProperty<Type, Key extends keyof Type>(obj: type, key: Key) {
+function getProperty<Type, Key extends keyof Type>(obj: Type, key: Key) {
   return obj[key]
 }
 getProperty({hello:"world"}, "hello")
